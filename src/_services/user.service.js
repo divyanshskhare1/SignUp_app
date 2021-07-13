@@ -22,8 +22,8 @@ function login(username, password) {
         .then(handleResponse)
         .then(user => {
             // store user details and jwt token in local storage to keep user logged in between page refreshes
-            localStorage.setItem('user', JSON.stringify(user));
-            console.log('inside login service user::::',user);
+            // localStorage.setItem('user', JSON.stringify(user));
+            
             return user;
         });
 }
@@ -34,7 +34,7 @@ function logout() {
 }
 
 function getAll(apiUrl) {
-    console.log('getAll auth', authHeader());
+    
     const requestOptions = {
         method: 'GET',
         headers: { 'authorization': authHeader().Authorization}
@@ -60,7 +60,7 @@ function register(user, apiUrl) {
     };
 
     if (authHeader()) {
-        console.log("authHeader::::",authHeader());
+        
         requestOptions.headers.AUTHORIZATION = authHeader().Authorization;
     }
     return fetch(apiUrl, requestOptions).then(handleResponse);
@@ -99,7 +99,7 @@ function handleResponse(response) {
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }
-        console.log('handleResponse data::::',data);
+        
         return data;
     });
 }

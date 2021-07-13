@@ -2,9 +2,10 @@ import { store } from "./store";
 
 export function authHeader() {
     console.log('authHeader store::::',store.getState());
-    const { accessToken } = store.getState().authentication.user;
-    if (accessToken) {
-        return { 'Authorization': 'Bearer ' + accessToken };
+    const { authentication } = store.getState();
+    
+    if (authentication.user?.accessToken) {
+        return { 'Authorization': 'Bearer ' + authentication.user.accessToken };
     } else {
         return {};
     }

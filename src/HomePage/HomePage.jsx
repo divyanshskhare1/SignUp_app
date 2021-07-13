@@ -11,8 +11,6 @@ function HomePage() {
     });
     const [submitted, setSubmitted] = useState(false);
     const [spinner, setSpinner] = useState(false);
-    const users = useSelector(state => state.users);
-    const token = useSelector(state => state.authentication.user.accessToken);
     const dispatch = useDispatch();
 
     function handleChange(e) {

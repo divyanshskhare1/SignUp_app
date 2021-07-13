@@ -32,8 +32,8 @@ function App() {
                     <Router history={history}>
                         <Switch>
                             <PrivateRoute exact path="/" component={HomePage} />
-                            <Route path="/skills" component={SkillTable} />
-                            <Route path="/profile" component={Profile} />
+                            <PrivateRoute exact path="/skills" component={SkillTable} />
+                            <PrivateRoute exact path="/profile" component={Profile} />
                             <Route path="/login" component={LoginPage} />
                             <Route path="/register" component={RegisterPage} />
                             <Redirect from="*" to="/" />
